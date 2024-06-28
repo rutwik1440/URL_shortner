@@ -22,9 +22,11 @@ async function handleUserLogin(req, res) {
         error: "Invalid credentials",
     });
 
-    const sessionId = uuidv4();
-    setUser(sessionId, user);
-    res.cookie("uid", sessionId);
+    // const sessionId = uuidv4(); 
+    // setUser(sessionId, user);
+    const token = setUser(user);
+    console.log("Generated Token:", token);
+    res.cookie("uid", token);
     return res.redirect("/");
 }
 
