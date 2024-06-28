@@ -31,7 +31,6 @@ app.get("/test", async (req, res) => {
     urls: allURLs,
   });
 
-  // return res.end("<h1> Hey from server </h1>");
 });
 
 app.use("/url", restrictToLoggedinUserOnly, urlRoute);
